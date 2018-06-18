@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
+   #before_action :configure_sign_up_params, only: [:create]
+  # before_action :configure_account_update_params, only: [:update]
   # GET /resource/sign_up
   # def new
   #   super
@@ -36,20 +36,31 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-  respond_to :json
 
-
+  def create
+    @user = User.create(user_params)
+    if @user.valid?
+        render_resource(resource)
+    else
+      validation_error(resource)
+    end
+    #  build_resource(configure_sign_up_params)
+     #
+    #  resource.save
+    #  render_resource(resource)
+   end
+  #
   protected
 
-  # If you have extra params to permit, append them to the sanitizer.
+  # # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
+  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:semester,:address,:batch])
   # end
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:semester,:address])
-  end
+  # def configure_account_update_params
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:semester,:address])
+  # end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
@@ -60,5 +71,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+
+   private
+
+  #  def sign_up_params
+  #    allow = [:email, :password, :password_confirmation, :semester,:address,:batch]
+  #    params.require(resource_name).permit(allow)
+  #  end
+  #  respond_to :json
+  #
+  # def respond_with(resource, _opts = {})
+  #   render json: resource
+  # end
+  #
+  # def respond_to_on_destroy
+  #   head :no_content
+  # end
+
+  def user_params
+    params.permit(:email,:password,:password_confirmation,:semester,:address,:batch)
+  end
 
 end

@@ -1,0 +1,186 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', '-g', 'localtunnel' ]
+2 info using npm@2.15.11
+3 info using node@v4.9.1
+4 verbose install initial load of /usr/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/lib/package.json
+6 silly cache add args [ 'localtunnel', null ]
+7 verbose cache add spec localtunnel
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'localtunnel',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'localtunnel',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: 'latest',
+8 silly cache add   type: 'tag' }
+9 silly addNamed localtunnel@latest
+10 verbose addNamed "latest" is being treated as a dist-tag for localtunnel
+11 info addNameTag [ 'localtunnel', 'latest' ]
+12 silly mapToRegistry name localtunnel
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry data Result {
+15 silly mapToRegistry   raw: 'localtunnel',
+15 silly mapToRegistry   scope: null,
+15 silly mapToRegistry   name: 'localtunnel',
+15 silly mapToRegistry   rawSpec: '',
+15 silly mapToRegistry   spec: 'latest',
+15 silly mapToRegistry   type: 'tag' }
+16 silly mapToRegistry uri https://registry.npmjs.org/localtunnel
+17 verbose addNameTag registry:https://registry.npmjs.org/localtunnel not in flight; fetching
+18 verbose request uri https://registry.npmjs.org/localtunnel
+19 verbose request no auth needed
+20 info attempt registry request try #1 at 11:16:29 PM
+21 verbose request id ea574f8a1b0737ec
+22 http request GET https://registry.npmjs.org/localtunnel
+23 http 200 https://registry.npmjs.org/localtunnel
+24 verbose headers { date: 'Fri, 15 Jun 2018 17:31:31 GMT',
+24 verbose headers   'content-type': 'application/json; charset=UTF-8',
+24 verbose headers   'transfer-encoding': 'chunked',
+24 verbose headers   connection: 'keep-alive',
+24 verbose headers   'set-cookie': [ '__cfduid=db35e7a5a7bd8a2c5d5787533efe08f821529083889; expires=Sat, 15-Jun-19 17:31:29 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+24 verbose headers   'cache-control': 'max-age=300',
+24 verbose headers   'cf-cache-status': 'REVALIDATED',
+24 verbose headers   'cf-ray': '42b6c547bf59a76f-KTM',
+24 verbose headers   etag: 'W/"d257fee472dfc7a91193563ab7b0a6d1"',
+24 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+24 verbose headers   'last-modified': 'Sat, 26 May 2018 14:50:52 GMT',
+24 verbose headers   vary: 'accept-encoding, accept',
+24 verbose headers   server: 'cloudflare',
+24 verbose headers   'content-encoding': 'gzip' }
+25 silly get cb [ 200,
+25 silly get   { date: 'Fri, 15 Jun 2018 17:31:31 GMT',
+25 silly get     'content-type': 'application/json; charset=UTF-8',
+25 silly get     'transfer-encoding': 'chunked',
+25 silly get     connection: 'keep-alive',
+25 silly get     'set-cookie': [ '__cfduid=db35e7a5a7bd8a2c5d5787533efe08f821529083889; expires=Sat, 15-Jun-19 17:31:29 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+25 silly get     'cache-control': 'max-age=300',
+25 silly get     'cf-cache-status': 'REVALIDATED',
+25 silly get     'cf-ray': '42b6c547bf59a76f-KTM',
+25 silly get     etag: 'W/"d257fee472dfc7a91193563ab7b0a6d1"',
+25 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+25 silly get     'last-modified': 'Sat, 26 May 2018 14:50:52 GMT',
+25 silly get     vary: 'accept-encoding, accept',
+25 silly get     server: 'cloudflare',
+25 silly get     'content-encoding': 'gzip' } ]
+26 verbose get saving localtunnel to /home/ranjan/.npm/registry.npmjs.org/localtunnel/.cache.json
+27 verbose correctMkdir /home/ranjan/.npm correctMkdir not in flight; initializing
+28 silly addNameTag next cb for localtunnel with tag latest
+29 silly addNamed localtunnel@1.9.0
+30 verbose addNamed "1.9.0" is a plain semver version for localtunnel
+31 silly mapToRegistry name localtunnel
+32 silly mapToRegistry using default registry
+33 silly mapToRegistry registry https://registry.npmjs.org/
+34 silly mapToRegistry data Result {
+34 silly mapToRegistry   raw: 'localtunnel',
+34 silly mapToRegistry   scope: null,
+34 silly mapToRegistry   name: 'localtunnel',
+34 silly mapToRegistry   rawSpec: '',
+34 silly mapToRegistry   spec: 'latest',
+34 silly mapToRegistry   type: 'tag' }
+35 silly mapToRegistry uri https://registry.npmjs.org/localtunnel
+36 verbose addRemoteTarball https://registry.npmjs.org/localtunnel/-/localtunnel-1.9.0.tgz not in flight; adding
+37 verbose addRemoteTarball [ 'https://registry.npmjs.org/localtunnel/-/localtunnel-1.9.0.tgz',
+37 verbose addRemoteTarball   '8ffecdcf8c8a14f62df1056cf9d54acbb0bb9a8f' ]
+38 info retry fetch attempt 1 at 11:16:31 PM
+39 info attempt registry request try #1 at 11:16:31 PM
+40 http fetch GET https://registry.npmjs.org/localtunnel/-/localtunnel-1.9.0.tgz
+41 http fetch 200 https://registry.npmjs.org/localtunnel/-/localtunnel-1.9.0.tgz
+42 silly fetchAndShaCheck shasum 8ffecdcf8c8a14f62df1056cf9d54acbb0bb9a8f
+43 verbose addTmpTarball /tmp/npm-30614-de56d5a1/registry.npmjs.org/localtunnel/-/localtunnel-1.9.0.tgz not in flight; adding
+44 verbose addTmpTarball already have metadata; skipping unpack for localtunnel@1.9.0
+45 verbose correctMkdir /home/ranjan/.npm correctMkdir not in flight; initializing
+46 silly cache afterAdd localtunnel@1.9.0
+47 verbose afterAdd /home/ranjan/.npm/localtunnel/1.9.0/package/package.json not in flight; writing
+48 verbose correctMkdir /home/ranjan/.npm correctMkdir not in flight; initializing
+49 verbose afterAdd /home/ranjan/.npm/localtunnel/1.9.0/package/package.json written
+50 silly install resolved [ { author: { name: 'Roman Shtylman', email: 'shtylman@gmail.com' },
+50 silly install resolved     name: 'localtunnel',
+50 silly install resolved     description: 'expose localhost to the world',
+50 silly install resolved     version: '1.9.0',
+50 silly install resolved     license: 'MIT',
+50 silly install resolved     repository:
+50 silly install resolved      { type: 'git',
+50 silly install resolved        url: 'git://github.com/localtunnel/localtunnel.git' },
+50 silly install resolved     dependencies:
+50 silly install resolved      { axios: '0.17.1',
+50 silly install resolved        debug: '2.6.8',
+50 silly install resolved        openurl: '1.1.1',
+50 silly install resolved        yargs: '6.6.0' },
+50 silly install resolved     devDependencies: { mocha: '~1.17.0' },
+50 silly install resolved     scripts: { test: 'mocha --ui qunit --reporter list --timeout 10000 -- test/index.js' },
+50 silly install resolved     bin: { lt: './bin/client' },
+50 silly install resolved     main: './client.js',
+50 silly install resolved     gitHead: '9a38b8de0f5548658029eec50d44aea8376913d3',
+50 silly install resolved     bugs: { url: 'https://github.com/localtunnel/localtunnel/issues' },
+50 silly install resolved     homepage: 'https://github.com/localtunnel/localtunnel#readme',
+50 silly install resolved     _id: 'localtunnel@1.9.0',
+50 silly install resolved     _npmVersion: '5.6.0',
+50 silly install resolved     _nodeVersion: '9.10.1',
+50 silly install resolved     _npmUser: { name: 'defunctzombie', email: 'shtylman@gmail.com' },
+50 silly install resolved     dist:
+50 silly install resolved      { integrity: 'sha512-wCIiIHJ8kKIcWkTQE3m1VRABvsH2ZuOkiOpZUofUCf6Q42v3VIZ+Q0YfX1Z4sYDRj0muiKL1bLvz1FeoxsPO0w==',
+50 silly install resolved        shasum: '8ffecdcf8c8a14f62df1056cf9d54acbb0bb9a8f',
+50 silly install resolved        tarball: 'https://registry.npmjs.org/localtunnel/-/localtunnel-1.9.0.tgz',
+50 silly install resolved        fileCount: 12,
+50 silly install resolved        unpackedSize: 28286 },
+50 silly install resolved     maintainers: [ [Object] ],
+50 silly install resolved     directories: {},
+50 silly install resolved     _npmOperationalInternal:
+50 silly install resolved      { host: 's3://npm-registry-packages',
+50 silly install resolved        tmp: 'tmp/localtunnel_1.9.0_1522820196011_0.16293719914925453' },
+50 silly install resolved     _shasum: '8ffecdcf8c8a14f62df1056cf9d54acbb0bb9a8f',
+50 silly install resolved     _resolved: 'https://registry.npmjs.org/localtunnel/-/localtunnel-1.9.0.tgz',
+50 silly install resolved     _from: 'localtunnel@latest' } ]
+51 info install localtunnel@1.9.0 into /usr/lib
+52 info installOne localtunnel@1.9.0
+53 verbose installOne of localtunnel to /usr/lib not in flight; installing
+54 verbose correctMkdir /home/ranjan/.npm/_locks correctMkdir not in flight; initializing
+55 verbose lock using /home/ranjan/.npm/_locks/localtunnel-32572fb6c89cd19b.lock for /usr/lib/node_modules/localtunnel
+56 silly install write writing localtunnel 1.9.0 to /usr/lib/node_modules/localtunnel
+57 verbose unbuild lib/node_modules/localtunnel
+58 silly gentlyRm /usr/lib/node_modules/localtunnel is being purged from base /usr
+59 verbose gentlyRm don't care about contents; nuking /usr/lib/node_modules/localtunnel
+60 verbose tar unpack /home/ranjan/.npm/localtunnel/1.9.0/package.tgz
+61 verbose tar unpacking to /usr/lib/node_modules/localtunnel
+62 silly gentlyRm /usr/lib/node_modules/localtunnel is being purged
+63 verbose gentlyRm don't care about contents; nuking /usr/lib/node_modules/localtunnel
+64 silly gunzTarPerm modes [ '775', '664' ]
+65 error tar.unpack untar error /home/ranjan/.npm/localtunnel/1.9.0/package.tgz
+66 verbose unlock done using /home/ranjan/.npm/_locks/localtunnel-32572fb6c89cd19b.lock for /usr/lib/node_modules/localtunnel
+67 verbose fstream_path /usr/lib/node_modules/localtunnel
+68 verbose fstream_type Directory
+69 verbose fstream_class DirWriter
+70 verbose stack Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/localtunnel'
+70 verbose stack     at Error (native)
+71 verbose fstream_stack /usr/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25
+71 verbose fstream_stack /usr/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53
+71 verbose fstream_stack FSReqWrap.oncomplete (fs.js:82:15)
+72 verbose cwd /home/ranjan/colz_project/ioni_api
+73 error Linux 4.4.0-127-generic
+74 error argv "/usr/bin/node" "/usr/bin/npm" "install" "-g" "localtunnel"
+75 error node v4.9.1
+76 error npm  v2.15.11
+77 error path /usr/lib/node_modules/localtunnel
+78 error code EACCES
+79 error errno -13
+80 error syscall mkdir
+81 error Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/localtunnel'
+81 error     at Error (native)
+81 error  { [Error: EACCES: permission denied, mkdir '/usr/lib/node_modules/localtunnel']
+81 error   errno: -13,
+81 error   code: 'EACCES',
+81 error   syscall: 'mkdir',
+81 error   path: '/usr/lib/node_modules/localtunnel',
+81 error   fstream_type: 'Directory',
+81 error   fstream_path: '/usr/lib/node_modules/localtunnel',
+81 error   fstream_class: 'DirWriter',
+81 error   fstream_stack:
+81 error    [ '/usr/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25',
+81 error      '/usr/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53',
+81 error      'FSReqWrap.oncomplete (fs.js:82:15)' ] }
+82 error Please try running this command again as root/Administrator.
+83 verbose exit [ -13, true ]
+84 verbose unbuild lib/node_modules/localtunnel
+85 silly gentlyRm /usr/lib/node_modules/localtunnel is being purged from base /usr
+86 verbose gentlyRm don't care about contents; nuking /usr/lib/node_modules/localtunnel

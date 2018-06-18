@@ -18,9 +18,44 @@ class Users::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  respond_to :json
+  # def create
+  #   user = User.find_by(email: params[:email].downcase)
+  #   if user && warden.authenticate!(:scope => :user)
+  #     render_resource(resource)
+  #   else
+  #     validation_error(resource)
+  #   end
+  # end
 
+  def create
+    @user =  User.find_for_authentication(email:login_params.required(:email))
+     if @user.present? && @user.valid_password?(login_params.require(:password))
+       render_resource(@user)
+     else
+       validation_error(@user)
+     end
+  end
 
+  # def create
+  #   resource = warden.authenticate!(:scope => resource_name, :recall => :failure)
+  #   return sign_in_and_redirect(resource_name, resource)
+  # end
+  #
+  # def sign_in_and_redirect(resource_or_scope, resource=nil)
+  #   scope = Devise::Mapping.find_scope!(resource_or_scope)
+  #   resource ||= resource_or_scope
+  #   sign_in(scope, resource) unless warden.user(scope) == resource
+  #   return render :json => {:success => true ,:email=> resource.email ,:jwt=>resource.jti}
+  # end
+  #
+  # def failure
+  #   return render:json => {:success => false, :errors => ["Login failed."]}
+  # end
+  private
+
+    def login_params
+      params.permit(:email, :password)
+    end
 
   # protected
 
