@@ -15,6 +15,11 @@ gem 'devise'
 #gem 'simple_token_authentication'
 gem 'pry'
 gem 'bcrypt'
+gem 'carrierwave'
+gem 'carrierwave-base64'
+
+gem 'jbuilder'
+gem 'rack-cors'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
