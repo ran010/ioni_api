@@ -52,6 +52,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.permit(:name, :description, :document_data => []) #add document_data as a permitted parameter
+      params.permit(:name, :description,:members,:batch,:language, :document_data => []) #add document_data as a permitted parameter
     end
 end
