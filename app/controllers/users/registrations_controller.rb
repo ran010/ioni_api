@@ -38,11 +38,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def create
+    binding.pry
     @user = User.create(user_params)
     if @user.valid?
-        render_resource(resource)
+      render :show, status: :created
     else
-      validation_error(resource)
+      render json: {
+        message: "Regisration unsuccessfully",
+        status: "Unauthorized"
+      }
     end
     #  build_resource(configure_sign_up_params)
      #

@@ -4,6 +4,10 @@ class ApplicationController < ActionController::API
   def render_resource(resource)
     if resource.errors.empty?
       render json: resource
+      # render json: {
+      #   message: "Successfully created todo list.",
+      #   resource: resource
+      # }
     else
       validation_error(resource)
     end
