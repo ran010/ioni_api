@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
    #before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+
   # GET /resource/sign_up
   # def new
   #   super
@@ -19,9 +20,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    @user = User.update(user_params_update)
+    if @user.valid?
+      render :show, status: :created
+    else
+      render json: {
+        message: "Regisration unsuccessfully",
+        status: "Unauthorized"
+      }
+    end
+  end
 
   # DELETE /resource
   # def destroy
@@ -38,13 +47,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   def create
-    binding.pry
     @user = User.create(user_params)
     if @user.valid?
       render :show, status: :created
     else
       render json: {
-        message: "Regisration unsuccessfully",
+        message: "Update unsuccessfully",
         status: "Unauthorized"
       }
     end
@@ -95,6 +103,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def user_params
     params.permit(:email,:password,:password_confirmation,:semester,:address,:batch)
+  end
+  def user_params_update
+    params.permit(:semester)
   end
 
 end
