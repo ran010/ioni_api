@@ -30,7 +30,7 @@ class Users::SessionsController < Devise::SessionsController
   def create
     @user =  User.find_for_authentication(email:login_params.required(:email))
      if @user.present? && @user.valid_password?(login_params.require(:password))
-       render :show, status: :created
+       respond_to json: :show, status: :created
      else
        render json: {
          message: "Login unsuccessfully",
