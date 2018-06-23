@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  respond_to :json
+
    #before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -51,7 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.valid?
       render :show, status: :created
     else
-      render json: {
+      respond_to json: {
         message: "Update unsuccessfully",
         status: "Unauthorized"
       }
