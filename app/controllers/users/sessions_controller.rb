@@ -2,7 +2,6 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
-  respond_to :json
 
   # GET /resource/sign_in
   # def new
@@ -31,7 +30,20 @@ class Users::SessionsController < Devise::SessionsController
   def create
     @user =  User.find_for_authentication(email:login_params.required(:email))
      if @user.present? && @user.valid_password?(login_params.require(:password))
-       render :show, status: :created
+      #  render :show, status: :created
+      render json:{
+        isSucess: true,
+        id: @user.id,
+        email: @user.email,
+        isAdmin: @user.isAdmin,
+        semester: @user.semester,
+        batch: @user.batch,
+        address: @user.address,
+        jti: @user.jti,
+        created_at: @user.created_at,
+        updated_at: @user.updated_at
+
+      }
      else
        render json: {
          message: "Login unsuccessfully",

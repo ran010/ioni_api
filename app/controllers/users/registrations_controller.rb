@@ -22,17 +22,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  def update
-    @user = User.update(user_params_update)
-    if @user.valid?
-      render :show, status: :created
-    else
-      render json: {
-        message: "Regisration unsuccessfully",
-        status: "Unauthorized"
-      }
-    end
-  end
+  # def update
+  #   @user = User.update(user_params_update)
+  #   if @user.valid?
+  #     render :show, status: :created
+  #   else
+  #     render json: {
+  #       message: "Regisration unsuccessfully",
+  #       status: "Unauthorized"
+  #     }
+  #   end
+  # end
 
   # DELETE /resource
   # def destroy
@@ -51,7 +51,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.create(user_params)
     if @user.valid?
-      render :show, status: :created
+      render json:{
+        isSucess: true,
+        id: @user.id,
+        email: @user.email,
+        isAdmin: @user.isAdmin,
+        semester: @user.semester,
+        batch: @user.batch,
+        address: @user.address,
+        jti: @user.jti,
+        created_at: @user.created_at,
+        updated_at: @user.updated_at
+
+      }
     else
       respond_to json: {
         message: "Update unsuccessfully",
@@ -106,8 +118,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def user_params
     params.permit(:email,:password,:password_confirmation,:semester,:address,:batch)
   end
-  def user_params_update
-    params.permit(:semester)
-  end
+  # def user_params_update
+  #   params.permit(:semester)
+  # end
 
 end
