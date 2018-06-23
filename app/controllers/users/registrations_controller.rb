@@ -51,7 +51,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.create(user_params)
     if @user.valid?
-      render :show, status: :created
+      respond_to json: :show, status: :created
     else
       respond_to json: {
         message: "Update unsuccessfully",
