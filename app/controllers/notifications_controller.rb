@@ -5,6 +5,7 @@ class NotificationsController < ApplicationController
   # GET /notifications.json
   def index
     @notifications = Notification.all
+    render json:@notification, status: :ok
   end
 
   # GET /notifications/1
