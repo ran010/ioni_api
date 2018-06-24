@@ -5,12 +5,16 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+    render json: @projects, status: :ok
+
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
+    render json: @project, status: :ok
+
   end
 
   # POST /projects
@@ -23,7 +27,7 @@ class ProjectsController < ApplicationController
          @project.documents.create!(:document =>  params[:document_data])
          #create a document associated with the project that has just been created
     #  end
-     render :show, status: :created, location: @project
+     render json: @project, status: :ok
    else
      render json: @project.errors, status: :unprocessable_entity
    end
@@ -33,7 +37,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1.json
   def update
     if @project.update(project_params)
-      render :show, status: :ok, location: @project
+      render json: @project, status: :ok
     else
       render json: @project.errors, status: :unprocessable_entity
     end

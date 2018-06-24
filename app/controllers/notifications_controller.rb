@@ -5,6 +5,7 @@ class NotificationsController < ApplicationController
   # GET /notifications.json
   def index
     @notifications = Notification.all
+    render json:@notification, status: :ok
   end
 
   # GET /notifications/1
@@ -18,7 +19,7 @@ class NotificationsController < ApplicationController
     @notification = Notification.new(notification_params)
 
     if @notification.save
-      render :show, status: :created, location: @notification
+      render json:@notification, status: :ok
     else
       render json: @notification.errors, status: :unprocessable_entity
     end
@@ -28,7 +29,7 @@ class NotificationsController < ApplicationController
   # PATCH/PUT /notifications/1.json
   def update
     if @notification.update(notification_params)
-      render :show, status: :ok, location: @notification
+      render json:@notification, status: :ok
     else
       render json: @notification.errors, status: :unprocessable_entity
     end
