@@ -52,7 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.create(user_params)
     if @user.valid?
       render json:{
-        isSucess: true,
+        isSuccess: true,
         id: @user.id,
         email: @user.email,
         isAdmin: @user.isAdmin,
@@ -62,12 +62,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
         jti: @user.jti,
         created_at: @user.created_at,
         updated_at: @user.updated_at
-
       }
     else
-      respond_to json: {
-        message: "Update unsuccessfully",
-        status: "Unauthorized"
+      render json: {
+        message: "Regisration unsuccessfully",
+        status: "Unauthorized",
+        isSuccess: false
       }
     end
     #  build_resource(configure_sign_up_params)
@@ -76,7 +76,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #  render_resource(resource)
    end
   #
-  protected
 
   # # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params

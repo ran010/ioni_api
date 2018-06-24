@@ -32,7 +32,7 @@ class Users::SessionsController < Devise::SessionsController
      if @user.present? && @user.valid_password?(login_params.require(:password))
       #  render :show, status: :created
       render json:{
-        isSucess: true,
+        isSuccess: true,
         id: @user.id,
         email: @user.email,
         isAdmin: @user.isAdmin,
@@ -48,7 +48,7 @@ class Users::SessionsController < Devise::SessionsController
        render json: {
          message: "Login unsuccessfully",
          status: "Unauthorized",
-         isSucess: false
+         isSuccess: false
        }
      end
   end
