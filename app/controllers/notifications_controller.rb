@@ -5,7 +5,8 @@ class NotificationsController < ApplicationController
   # GET /notifications.json
   def index
     @notifications = Notification.order("created_at DESC")
-    render json:@notifications, status: :ok
+    paginate json: Notification.order("created_at DESC"), per_page: 20
+#     render json:@notifications, status: :ok
   end
 
   # GET /notifications/1

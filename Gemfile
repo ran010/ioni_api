@@ -17,6 +17,8 @@ gem 'pry'
 gem 'bcrypt'
 gem 'carrierwave'
 gem 'carrierwave-base64'
+gem 'pagy'
+gem 'api-pagination'
 
 gem 'jbuilder'
 gem 'rack-cors'
