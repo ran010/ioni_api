@@ -18,12 +18,19 @@ class NotificationsController < ApplicationController
   # POST /notifications
   # POST /notifications.json
   def create
-    @notification = Notification.new(notification_params)
+    @user = User.find(params[:id])
+    if  @user.isAdmin == true
+      @notification = Notification.new(notification_params)
 
-    if @notification.save
-      render json:@notification, status: :ok
+      if @notification.save
+        render json:@notification, status: :ok
+      else
+        render json: @notification.errors, status: :unprocessable_entity
+      end
     else
-      render json: @notification.errors, status: :unprocessable_entity
+      render json:{
+        message: "Unauthorize to post"
+      }
     end
   end
 
