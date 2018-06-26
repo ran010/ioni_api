@@ -8,18 +8,17 @@ class UsersController < ApplicationController
  def update_password
    @user= User.find(params[:id])
    if @user&.valid_password?(params[:current_password])
+
      @user.update(:password => params[:password])
      render json: {
-       message: "Paasword update successfully",
+       message: "Password update successfully",
        isSuccess: true
      }
      else
      render json: {
-       message: "Paasword update unsuccessfully",
+       message: "Password update unsuccessfully",
        isSuccess: false
      }
      end
     end
-
- 
 end
