@@ -2,6 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   respond_to :json
+  before_action :set_host_from_request, only: [:create]
 
    #before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -51,6 +52,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.create(user_params)
     if @user.valid?
+      UserMailer.registration_confirmation(@user).deliver
       render json:{
         isSuccess: true,
         id: @user.id,
@@ -116,6 +118,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def user_params
     params.permit(:email,:password,:password_confirmation,:semester,:address,:batch)
+  end
+
+  def set_host_from_request
+   ActionMailer::Base.default_url_options = { host: request.host_with_port }
   end
   # def user_params_update
   #   params.permit(:semester)

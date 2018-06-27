@@ -30,20 +30,29 @@ class Users::SessionsController < Devise::SessionsController
   def create
     @user =  User.find_for_authentication(email:login_params.required(:email))
      if @user.present? && @user.valid_password?(login_params.require(:password))
-      #  render :show, status: :created
-      render json:{
-        isSuccess: true,
-        id: @user.id,
-        email: @user.email,
-        isAdmin: @user.isAdmin,
-        semester: @user.semester,
-        batch: @user.batch,
-        address: @user.address,
-        jti: @user.jti,
-        created_at: @user.created_at,
-        updated_at: @user.updated_at
+       if user.email_confirmed
+         render json:{
+           isSuccess: true,
+           id: @user.id,
+           email: @user.email,
+           isAdmin: @user.isAdmin,
+           semester: @user.semester,
+           batch: @user.batch,
+           address: @user.address,
+           jti: @user.jti,
+           created_at: @user.created_at,
+           updated_at: @user.updated_at
 
-      }
+         }
+      else
+        render json:{
+          message: "account not activated",
+          isSuccess: false
+        }
+
+      end
+      #  render :show, status: :created
+
      else
        render json: {
          message: "Login unsuccessfully",
