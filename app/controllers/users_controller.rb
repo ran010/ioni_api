@@ -26,12 +26,12 @@ class UsersController < ApplicationController
         user = User.find_by_confirm_token(params[:id])
         if user
           user.email_activate
-          flash[:success] = "Welcome to the Sample App! Your email has been confirmed.
-          Please sign in to continue."
-          redirect_to signin_url
+          render :file => "#{Rails.root}/public/message.html"
+
         else
-          flash[:error] = "Sorry. User does not exist"
-          redirect_to root_url
-        end
+          render json: {
+            message: "Token not match"
+        }
+      end
     end
 end
