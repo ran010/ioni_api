@@ -37,7 +37,8 @@ class NotificationsController < ApplicationController
   # PATCH/PUT /notifications/1
   # PATCH/PUT /notifications/1.json
   def update
-    if @notification.update(notification_params)
+    @user = User.find(params[:admin_id])
+    if @user.isAdmin == true && @notification.update(notification_params)
       render json:@notification, status: :ok
     else
       render json: @notification.errors, status: :unprocessable_entity
@@ -46,9 +47,9 @@ class NotificationsController < ApplicationController
 
   # DELETE /notifications/1
   # DELETE /notifications/1.json
-  def destroy
-    @notification.destroy
-  end
+  # def destroy
+  #   @notification.destroy
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

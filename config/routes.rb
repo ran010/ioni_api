@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :notifications
-  resources :projects
+  resources :notifications, :except => :destroy
+  resources :projects,:except => :destroy
   devise_for :users, :controllers => {
     :registrations => "users/registrations",
     :sessions => "users/sessions"

@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
    if @project.save
      #iterate through each of the files
     #  params[:document_data].each do |file|
-         @project.documents.create!(:document =>  params[:document_data])
+        # @project.documents.create!(:document =>  params[:document_data])
          #create a document associated with the project that has just been created
     #  end
      render json: @project, status: :ok
@@ -54,6 +54,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.permit(:name, :description,:members,:batch,:language, :document_data => []) #add document_data as a permitted parameter
+      params.permit(:name, :description,:members,:batch,:language) #add document_data as a permitted parameter , :document_data => []
     end
 end
