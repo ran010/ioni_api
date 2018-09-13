@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   end
   def update_profile
     @user= User.find(params[:id])
+    binding.pry
     if @user.update(update_profile_params)
     render json: {
       message: "Profile update successfully",
@@ -18,6 +19,6 @@ class ProfilesController < ApplicationController
 
   private
   def update_profile_params
-    params.permit(:semester,:address)
+    params.permit(:semester,:address,:image)
   end
 end

@@ -2,6 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   include Devise::JWT::RevocationStrategies::JTIMatcher
+  mount_uploader :image, ImageUploader
+
   #acts_as_token_authenticatable
   before_create :confirmation_token
 
