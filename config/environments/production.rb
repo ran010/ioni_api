@@ -87,6 +87,12 @@ Rails.application.configure do
     authentication:       :plain,
     enable_starttls_auto: true
   }
+  config.middleware.use ExceptionNotification::Rack,
+    slack: {
+      webhook_url: "https://hooks.slack.com/services/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",
+      channel: "@ranjan",
+      username: "ranjan", # ENV based username to distinguish Staging Exceptions in channel
+    }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
